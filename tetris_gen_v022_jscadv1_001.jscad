@@ -78,21 +78,21 @@ function finger_addon(start_index, total_fingers, section_length, thickness, ker
         var fingers = [];
         for (var i = 0; i < total_fingers; i++) {
             if ((i + start_index) % 2 === 0) {
-                var finger_width = (section_length / total_fingers) - kerf;
-                var xPos = i * (section_length / total_fingers);
+                var finger_width = (section_length / total_fingers) + kerf;
+                var xPos = i * (section_length / total_fingers) - kerf;
 
-                var sq = square([finger_width, thickness + kerf], false);
+                var sq = square([finger_width, thickness ], false);
                 sq = translate([xPos, 0, 0], sq);
 
                 fingers.push(sq);
             }
         }
-        return union(fingers);
+        return union(...fingers);
     }
 
     // Extrude 2D pattern to 3D
     return linear_extrude({
-        height: thickness
+        height: thickness 
     }, finger_pattern());
 }
 
