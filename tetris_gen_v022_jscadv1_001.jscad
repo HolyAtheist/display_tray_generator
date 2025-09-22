@@ -1,4 +1,4 @@
-// laser cut tetris blocks
+// laser cut tetris blocks v022 jscad v001
 // converted to openjscad v1
 // by t b mosich 2025
 // example script; work in progress; code is not exemplary
@@ -10,6 +10,7 @@ function getParameterDefinitions() {
             type: 'choice',
             caption: 'Model View',
             values: [1, 2],
+            captions: ['3D view', '2D flattened'],
             initial: 1
         }, {
             name: 'tetris_shape',
